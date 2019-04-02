@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'wellth_water'
+    'wellth_water',
 ]
 
 MIDDLEWARE = [
