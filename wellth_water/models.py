@@ -12,7 +12,7 @@ class Users(models.Model):
 class Entries(models.Model):
     type = models.CharField(max_length=255, null=False)
     amount = models.IntegerField()
-    user_id = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
 
     def __str__(self):
         return "{} - {}".format(self.type, self.amount, self.user_id)
