@@ -23,17 +23,12 @@ class BaseViewTest(APITestCase):
         if name != "" and email != "":
             return Users.objects.create(name=name, email=email)
 
-
-
     @staticmethod
     def create_entry(user, amount=0, type=""):
         if type != "":
             Entries.objects.create(user=user, amount=amount, type=type)
 
-
     def setUp(self):
-        # add test data
-        testvar = 'y'
         user_with_entries = self.create_user("bob", "bob@gmail.com")
         self.create_user("bobo", "bobo@gmail.com")
         self.create_user("bobby", "bobby@gmail.com")
