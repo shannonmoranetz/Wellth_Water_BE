@@ -5,8 +5,12 @@ from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
 from .models import Users
+from .serializers import UsersSerializer
 from .models import Entries
-from .serializers import UserEntriesSerializer
+from .serializers import EntriesSerializer
+from IPython import embed
+import pdb
+
 
 # tests for views
 
@@ -15,33 +19,41 @@ class BaseViewTest(APITestCase):
     client = APIClient()
 
     @staticmethod
-    def create_song(title="", artist=""):
-        if title != "" and artist != "":
-            Songs.objects.create(title=title, artist=artist)
+    def create_user(name="", email=""):
+        if name != "" and email != "":
+            return Users.objects.create(name=name, email=email)
+
+    @staticmethod
+    def create_entry(user, amount=0, type=""):
+        if type != "":
+            Entries.objects.create(user=user, amount=amount, type=type)
 
     def setUp(self):
-        # add test data
-        self.create_song("like glue", "sean paul")
-        self.create_song("simple song", "konshens")
-        self.create_song("love is wicked", "brick and lace")
-        self.create_song("jam rock", "damien marley")
+        user_with_entries = self.create_user("bob", "bob@gmail.com")
+        self.create_user("bobo", "bobo@gmail.com")
+        self.create_user("bobby", "bobby@gmail.com")
 
+        self.create_entry(user_with_entries, 560, "coffee")
 
-class GetAllSongsTest(BaseViewTest):
+class GetAllUsersTest(BaseViewTest):
 
-    def test_get_all_songs(self):
-        """
-        This test ensures that all songs added in the setUp method
-        exist when we make a GET request to the songs/ endpoint
-        """
-        # hit the API endpoint
+    def test_get_all_users(self):
         response = self.client.get(
-            reverse("songs-all", kwargs={"version": "v1"})
+            reverse("users-all", kwargs={"version": "v1"})
         )
-        # fetch the data from db
-        expected = Songs.objects.all()
-        serialized = SongsSerializer(expected, many=True)
+        expected = Users.objects.all()
+        serialized = UsersSerializer(expected, many=True)
         self.assertEqual(response.data, serialized.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-# Create your tests here.
+class GetAllEntriesTest(BaseViewTest):
+
+    def test_get_all_entries(self):
+
+        response = self.client.get(
+            reverse("entries-all", kwargs={"version": "v1"})
+        )
+        expected = Entries.objects.all()
+        serialized = EntriesSerializer(expected, many=True)
+        self.assertEqual(response.data, serialized.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
