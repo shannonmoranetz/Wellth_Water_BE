@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Users
 from .models import Entries
+from .models import Transactions
 
 
 class UsersSerializer(serializers.ModelSerializer):
@@ -15,3 +16,8 @@ class EntriesSerializer(serializers.ModelSerializer):
 
 class UserEntriesSerializer(serializers.Serializer):
      entries = EntriesSerializer(many=True)
+
+class TransactionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transactions
+        fields = ("amount",)

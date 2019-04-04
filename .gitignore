@@ -1,3 +1,5 @@
 env/
-wellth_water/__pycache__
 api/__pycache__
+wellth_water/__pycache__
+wellth_water/migrations/__pycache__
+__pycache__/

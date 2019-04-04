@@ -11,6 +11,8 @@ from .models import Users
 from .serializers import UsersSerializer
 from .models import Entries
 from .serializers import EntriesSerializer
+from .models import Transactions
+from .serializers import TransactionsSerializer
 
 
 class ListUsersView(generics.ListAPIView):
@@ -27,7 +29,6 @@ class ListEntriesView(generics.ListAPIView):
     queryset = Entries.objects.all()
     serializer_class = EntriesSerializer
 
-
 class ListUserEntriesView(APIView):
     """
     Provides a get method handler.
@@ -36,3 +37,10 @@ class ListUserEntriesView(APIView):
         entries = Entries.objects.filter(user_id=user_id)
         serializer = EntriesSerializer(entries, many=True)
         return Response(serializer.data)
+
+class ListTransactionsView(generics.ListAPIView):
+    """
+    Provides a get method handler.
+    """
+    queryset = Transactions.objects.all()
+    serializer_class = TransactionsSerializer

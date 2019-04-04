@@ -21,6 +21,12 @@ class Entries(TimeStampedModel):
     amount = models.IntegerField()
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
 
-
     def __str__(self):
         return "{} - {}".format(self.type, self.amount, self.user_id)
+
+class Transactions(TimeStampedModel):
+    amount = models.IntegerField()
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{} - {}".format(self.amount, self.user_id)
