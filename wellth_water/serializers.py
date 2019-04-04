@@ -14,4 +14,10 @@ class EntriesSerializer(serializers.ModelSerializer):
         fields = ("type", "amount")
 
 class UserEntriesSerializer(serializers.Serializer):
-     entries = EntriesSerializer(many=True)
+     def to_representation(self, instance):
+         ret = {}
+         ret['id'] = instance.id
+         entries = Entries.objects.filter(user_id=instance.id)
+         ret['entries'] = EntriesSerializer(entries).data
+         import pdb; pdb.set_trace()
+         return ret
