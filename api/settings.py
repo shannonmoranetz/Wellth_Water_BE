@@ -40,7 +40,7 @@ SECRET_KEY = 'mnyezjvalb_ml43erhdnnu64ov(1t&@zd0l27-#+drak$yl*1='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['wellth-water.herokuapp.com']
 
 
 # Application definition
