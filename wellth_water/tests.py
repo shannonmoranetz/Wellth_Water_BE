@@ -34,10 +34,16 @@ class BaseViewTest(APITestCase):
 
     def setUp(self):
         user_with_entries = self.create_user("bob", "bob@gmail.com")
-        self.create_user("bobo", "bobo@gmail.com")
+        another_user = self.create_user("Mike", "bobo@gmail.com")
         self.create_user("bobby", "bobby@gmail.com")
 
         self.create_entry(user_with_entries, 560, "coffee")
+        self.create_entry(user_with_entries, 590, "coffee")
+
+        self.create_entry(another_user, 590, "coffee")
+
+        self.__class__.test_user = user_with_entries
+
         self.create_entry(user_with_entries, 300, "tea")
         self.create_entry(user_with_entries, 540, "beer")
 
@@ -57,14 +63,25 @@ class GetAllUsersTest(BaseViewTest):
 class GetAllEntriesTest(BaseViewTest):
 
     def test_get_all_entries(self):
-
         response = self.client.get(
             reverse("entries-all", kwargs={"version": "v1"})
         )
         expected = Entries.objects.all()
         serialized = EntriesSerializer(expected, many=True)
         self.assertEqual(response.data, serialized.data)
+        self.assertEqual(len(response.data), 5)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+class GetUserEntriesTest(BaseViewTest):
+
+    def test_get_all_entries(self):
+        user = self.__class__.test_user
+        response = self.client.get(
+            reverse("user-entries", kwargs={"version": "v1", "user_id": user.id})
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 4)
 
 class GetAllTransactionsTest(BaseViewTest):
 
