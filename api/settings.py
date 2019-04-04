@@ -100,8 +100,7 @@ DATABASES = {
         'NAME': 'wellth_water_db',
         'USER': 'wellth_water',
         'HOST': 'localhost',
-        'PORT': '5432',
-        'DATABASE_URL': os.environ['WELLTH_DATABASE_URL']
+        'PORT': '5432'
     }
 }
 
@@ -141,5 +140,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+DATABASE_URL = os.environ['WELLTH_DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
