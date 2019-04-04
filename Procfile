@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn wellth_water.wsgi
