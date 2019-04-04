@@ -81,7 +81,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'wellth_water_db',
         'USER': 'wellth_water',
-        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432'
     }
