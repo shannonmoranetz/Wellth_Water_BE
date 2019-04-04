@@ -1,4 +1,5 @@
 dj-database-url==0.4.2
+djangorestframework
 
 Django==2.0.3
 postgres==2.2.1
