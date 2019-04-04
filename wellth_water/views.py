@@ -33,7 +33,6 @@ class ListUserEntriesView(APIView):
     Provides a get method handler.
     """
     def get(self, request, version, user_id, format=None):
-        import pdb; pdb.set_trace()
-        entries = Entries.objects.all()
+        entries = Entries.objects.filter(user_id=user_id)
         serializer = EntriesSerializer(entries, many=True)
         return Response(serializer.data)

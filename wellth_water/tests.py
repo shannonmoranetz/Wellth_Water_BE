@@ -77,7 +77,3 @@ class GetUserEntriesTest(BaseViewTest):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         self.assertEqual(len(response.data), 2)
-
-        expected = Entries.objects.all()
-        serialized = EntriesSerializer(expected, many=True)
-        self.assertEqual(response.data, serialized.data)

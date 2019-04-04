@@ -12,3 +12,6 @@ class EntriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Entries
         fields = ("type", "amount")
+
+class UserEntriesSerializer(serializers.Serializer):
+     entries = EntriesSerializer(many=True)
