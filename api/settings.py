@@ -98,7 +98,8 @@ DATABASES = {
         'NAME': 'wellth_water_db',
         'USER': 'wellth_water',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '5432',
+        'DATABASE_URL': os.environ['WELLTH_DATABASE_URL'] 
     }
 }
 
