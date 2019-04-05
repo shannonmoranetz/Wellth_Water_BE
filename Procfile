@@ -1,1 +1,1 @@
-web: gunicorn wellth_water.wsgi
+web: gunicorn wellth_water.wsgi --log-file -
