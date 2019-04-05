@@ -15,6 +15,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import psycopg2
+import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -140,8 +141,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-DATABASE_URL = os.environ['WELLTH_DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# DATABASE_URL = os.environ['WELLTH_DATABASE_URL']
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+django_heroku.settings(locals())
