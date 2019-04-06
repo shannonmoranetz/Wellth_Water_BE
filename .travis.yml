@@ -9,7 +9,6 @@ services:
   - virtualenv
 
 before_script:
-psql -c 'create database travis_ci_test;' -U postgres
   - psql -c "CREATE DATABASE wellth_water_db;" -U postgres
   - psql -c "CREATE USER wellth_water;" -U postgres
   - psql -c "ALTER USER wellth_water CREATEDB;" -U postgres
