@@ -17,12 +17,12 @@ class Users(TimeStampedModel):
         return "{} - {}".format(self.email, self.name)
 
 class Entries(TimeStampedModel):
-    type = models.CharField(max_length=255, null=False)
+    drinktype = models.CharField(max_length=255, null=False)
     amount = models.IntegerField()
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "{} - {}".format(self.type, self.amount, self.user_id)
+        return "{} - {}".format(self.drinktype, self.amount, self.user_id)
 
 class Transactions(TimeStampedModel):
     amount = models.IntegerField()

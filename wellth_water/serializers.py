@@ -12,7 +12,7 @@ class UsersSerializer(serializers.ModelSerializer):
 class EntriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Entries
-        fields = ("user_id", "type", "amount", "created_at")
+        fields = ("user_id", "drinktype", "amount", "created_at")
 
 class UserEntriesSerializer(serializers.Serializer):
      entries = EntriesSerializer(many=True)
