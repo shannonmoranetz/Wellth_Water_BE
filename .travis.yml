@@ -10,7 +10,7 @@ before_script:
   - psql -c "CREATE USER wellth_water;" -U postgres
   - psql -c "ALTER USER wellth_water CREATEDB;" -U postgres
   - psql -c "GRANT ALL PRIVILEGES ON DATABASE wellth_water_db TO wellth_water;" -U postgres
-  - psql -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO wellth_water;" -U postgres
+  - psql -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO public;" -U postgres
   - virtualenv --python=python3 venv
   - source venv/bin/activate
   - pip install -r requirements.txt
