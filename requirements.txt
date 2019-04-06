@@ -9,3 +9,4 @@ gunicorn
 whitenoise==4.1.2
 psycopg2-binary
 django-heroku==0.3.1
+virtualenv==16.4.3
