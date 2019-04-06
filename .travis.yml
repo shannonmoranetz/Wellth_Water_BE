@@ -2,9 +2,8 @@ language: python
 python:
   - 3.6
 
-services:
-  - postgresql
-  - virtualenv
+addons:
+  postgresql: "9.6"
 
 before_script:
   - psql -c "CREATE DATABASE wellth_water_db;" -U postgres
@@ -16,5 +15,6 @@ before_script:
   - pip install -r requirements.txt
 
 script:
+  - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py test
