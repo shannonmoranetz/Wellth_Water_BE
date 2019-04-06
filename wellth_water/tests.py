@@ -23,9 +23,9 @@ class BaseViewTest(APITestCase):
             return Users.objects.create(name=name, email=email)
 
     @staticmethod
-    def create_entry(user, amount=0, type=""):
-        if type != "":
-            Entries.objects.create(user=user, amount=amount, type=type)
+    def create_entry(user, amount=0, drinktype=""):
+        if drinktype != "" and user != "" and amount != "":
+            Entries.objects.create(user=user, amount=amount, drinktype=drinktype)
 
     @staticmethod
     def create_transaction(user, amount=0):
@@ -71,6 +71,19 @@ class GetAllEntriesTest(BaseViewTest):
         self.assertEqual(response.data, serialized.data)
         self.assertEqual(len(response.data), 5)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+class PostEntryTest(BaseViewTest):
+
+    def test_post_entry(self):
+        user = self.__class__.test_user
+        self.assertEqual(len(Entries.objects.filter(user=user)), 4)
+
+        response = self.client.post(
+            reverse("entries-create", kwargs={"version": "v1", "user_id": user.id, "drinktype": "coffee", "amount": 450})
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(Entries.objects.filter(user=user)), 5)
 
 class GetUserEntriesTest(BaseViewTest):
 
