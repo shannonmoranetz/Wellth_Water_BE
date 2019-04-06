@@ -79,7 +79,6 @@ class GetUserEntriesTest(BaseViewTest):
         response = self.client.get(
             reverse("user-entries", kwargs={"version": "v1", "user_id": user.id})
         )
-
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 4)
 
