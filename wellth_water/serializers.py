@@ -7,12 +7,12 @@ from .models import Transactions
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Users
-        fields = ("name", "email", "id")
+        fields = ("id", "name", "email")
 
 class EntriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Entries
-        fields = ("type", "amount", "created_at",)
+        fields = ("user_id", "type", "amount", "created_at")
 
 class UserEntriesSerializer(serializers.Serializer):
      entries = EntriesSerializer(many=True)
@@ -20,4 +20,4 @@ class UserEntriesSerializer(serializers.Serializer):
 class TransactionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transactions
-        fields = ("amount",)
+        fields = ("id", "amount")
