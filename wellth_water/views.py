@@ -34,9 +34,13 @@ class ListUserEntriesView(APIView):
     Provides a get method handler.
     """
     def get(self, request, version, user_id, format=None):
+        user = Users.objects.get(id=user_id)
         entries = Entries.objects.filter(user_id=user_id)
-        serializer = EntriesSerializer(entries, many=True)
-        return Response(serializer.data)
+        entries_serializer = EntriesSerializer(entries, many=True)
+        users_serializer = UsersSerializer(user)
+        ret = users_serializer.data
+        ret['entries'] = entries_serializer.data
+        return Response(ret)
 
 class ListTransactionsView(generics.ListAPIView):
     """
