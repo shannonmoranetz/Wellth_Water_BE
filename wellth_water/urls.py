@@ -8,7 +8,7 @@ from .views import ListTransactionsView
 urlpatterns = [
     path('users/', ListUsersView.as_view(), name="users-all"),
     path('entries/', ListEntriesView.as_view(), name="entries-all"),
-    path(r'users/(P?<user_id>\d+)/entries/', ListUserEntriesView.as_view(), name="user-entries"),
+    path(r'users/(?<user_id>\d+)/entries/', ListUserEntriesView.as_view(), name="user-entries"),
     path('transactions/', ListTransactionsView.as_view(), name="transactions-all"),
 
 ]
