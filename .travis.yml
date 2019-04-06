@@ -1,16 +1,16 @@
 language: python
 python:
-  - "3.7"
+  - 3.6
 
 services:
   - postgresql
   - virtualenv
 
 before_script:
-  - psql -d postgres "CREATE DATABASE wellth_water_db;"
-  - psql -d postgres "CREATE USER wellth_water;"
-  - psql -d postgres "ALTER USER wellth_water CREATEDB;" -U postgres
-  - psql -d postgres "GRANT ALL PRIVILEGES on DATABASE wellth_water_db to welth_water;" -U postgres
+  - psql -c "CREATE DATABASE wellth_water_db;" -U postgres
+  - psql -c "CREATE USER wellth_water;" -U postgres
+  - psql -c "ALTER USER wellth_water CREATEDB;" -U postgres
+  - psql -c "GRANT ALL PRIVILEGES on DATABASE wellth_water_db to wellth_water;" -U postgres
   - virtualenv --python=python3 venv
   - source venv/bin/activate
   - pip install -r requirements.txt
