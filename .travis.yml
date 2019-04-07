@@ -17,3 +17,21 @@ script:
   - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py test
+
+deploy:
+  provider: heroku
+  buildpack: python
+  api_key:
+    secure: "dM99Hq53cajuI894IQ0BK5CnorB2aqMubdC+iAk+gVJNYUJBl6UOhiIeDW2gewcdZIg5k14vADxN/DVINO7/yVw88mf4/ZBs5i+32zYFZ06Bh7eO/DPYTE/s8RRCUUlqpp
+cMI7aARxbWXwFLcfxP6y93NrmrdmZ9wogfhciV31bPMovv5m+630pmbFhOZAatEGPGxRQv0pqyU/ud1OyRbR8w3ScJqjsynwwDNcjLx1W2swsLYo1ZCYirPznunRj3GZmjXNmJ20tj2UN
+eQlpGIhY9u2EIHUTdQCHxPwDSjPWWDeBbcpdjk0b2cQ2DLS1o8JyEEaeraO0wGycKbbRt8kyYaLTuZBFTxdICDcKZx5rXNw70IHeiCbn8IjL3ytmzzhaC3lD0PLzP9rnajHphYlWdn9J/
+X0HJD7rE1znr6wBnK4M0YrPe/DacPNra4O3j059pkMm1lZBLx4RQrVdYo0m1cW2EE2o/9KZlvFu1oYCjAz3nn/Jlxlf/L11mlPk33ywZ1H9sNcro8QCEK+AMeA/9Z22rp7OG/OGjThf/K
+44I8vrISo8PFfuk7sRVHKo4w8BoTpf/NvueDaJZhbMHBV527csxBBIdLkdj1GnvTd4rZCj2KbVk9P4/I54LaZg/WXVtxMEJWq64ugGRyaguTma3VG4PBoJF0WgPpLo96ak="
+  strategy: git
+  app: wellth-water
+  on:
+    repo: justinmauldin7/Wellth_Water_BE
+  run:
+    - "python wellth-water/manage.py migrate --all --settings=settings.heroku"
+    - "python wellth-water/manage.py seed --settings=settings.heroku"
+    - restart
