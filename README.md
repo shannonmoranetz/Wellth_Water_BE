@@ -57,6 +57,38 @@ GET /api/v1/users
 ]
 ```
 
+##### Get A Specific User & Their Entries:
+
+```
+GET /api/v1/users/1/entries
+
+{
+    "id": 1,
+    "name": "Justin",
+    "email": "Justin@gmail.com",
+    "entries": [
+        {
+            "user_id": 1,
+            "type": "tea",
+            "amount": 550,
+            "created_at": "2019-04-04T18:43:17.279036Z"
+        },
+        {
+            "user_id": 1,
+            "type": "mixed drinks",
+            "amount": 299,
+            "created_at": "2019-04-04T18:43:17.277840Z"
+        },
+        {
+            "user_id": 1,
+            "type": "wine",
+            "amount": 299,
+            "created_at": "2019-04-04T18:43:17.276189Z"
+        }
+    ]
+}
+```
+
 
 ##### Get All Entries:
 ```
