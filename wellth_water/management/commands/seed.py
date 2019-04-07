@@ -50,7 +50,7 @@ def create_entry(user):
     amounts = [ 250, 299, 350, 550, 650 ]
 
     entry = Entries(
-        type=random.choice(types),
+        drinktype=random.choice(types),
         amount=random.choice(amounts),
         user_id=user.id
     )
