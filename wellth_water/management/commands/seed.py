@@ -36,7 +36,7 @@ def create_user(name):
         email=f'{name}@gmail.com'
     )
     user.save()
-    for i in range(3):
+    for i in range(6):
         create_entry(user)
     logger.info("{} user created.".format(user))
     return user
