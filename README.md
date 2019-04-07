@@ -57,6 +57,38 @@ GET /api/v1/users
 ]
 ```
 
+##### Get A Specific User & Their Entries:
+
+```
+GET /api/v1/users/1/entries
+
+{
+    "id": 1,
+    "name": "Justin",
+    "email": "Justin@gmail.com",
+    "entries": [
+        {
+            "user_id": 1,
+            "type": "tea",
+            "amount": 550,
+            "created_at": "2019-04-04T18:43:17.279036Z"
+        },
+        {
+            "user_id": 1,
+            "type": "mixed drinks",
+            "amount": 299,
+            "created_at": "2019-04-04T18:43:17.277840Z"
+        },
+        {
+            "user_id": 1,
+            "type": "wine",
+            "amount": 299,
+            "created_at": "2019-04-04T18:43:17.276189Z"
+        }
+    ]
+}
+```
+
 
 ##### Get All Entries:
 ```
@@ -102,6 +134,37 @@ GET /api/v1/entries
 ]
 ```
 
+##### Get One User And Their Entries:
+
+```
+/api/v1/users/4/entries/
+
+{
+    "id": 4,
+    "name": "Sal",
+    "email": "Sal@gmail.com",
+    "entries": [
+        {
+            "user_id": 4,
+            "type": "beer",
+            "amount": 550,
+            "created_at": "2019-04-05T21:43:59.063906Z"
+        },
+        {
+            "user_id": 4,
+            "type": "beer",
+            "amount": 550,
+            "created_at": "2019-04-05T21:43:59.068701Z"
+        },
+        {
+            "user_id": 4,
+            "type": "coffee",
+            "amount": 250,
+            "created_at": "2019-04-05T21:43:59.073146Z"
+        }
+    ]
+}
+```
 
 ##### Get All Transactions:
 ```
@@ -113,7 +176,14 @@ GET /api/v1/transactions
 
 ##### Create an Entry:
 ```
-POST /api/v1/1/coffee/350
+POST /api/v1/entries/4/tea/240/
+
+{
+    "user_id": 4,
+    "drinktype": "tea",
+    "amount": 240,
+    "created_at": "2019-04-06T22:43:03.396548Z"
+}
 ```
 
 ##### Create a Transaction:

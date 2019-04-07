@@ -36,7 +36,7 @@ def create_user(name):
         email=f'{name}@gmail.com'
     )
     user.save()
-    for i in range(3):
+    for i in range(6):
         create_entry(user)
     logger.info("{} user created.".format(user))
     return user
@@ -50,7 +50,7 @@ def create_entry(user):
     amounts = [ 250, 299, 350, 550, 650 ]
 
     entry = Entries(
-        type=random.choice(types),
+        drinktype=random.choice(types),
         amount=random.choice(amounts),
         user_id=user.id
     )
