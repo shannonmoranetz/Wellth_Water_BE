@@ -1,2 +1,2 @@
-release: python manage.py migrate && python manage.py seed
+release: python manage.py migrate
 web: gunicorn wellth_water.wsgi --log-file -
