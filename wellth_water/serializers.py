@@ -1,8 +1,5 @@
 from rest_framework import serializers
-from .models import Users
-from .models import Entries
-from .models import Transactions
-
+from .models import Users, Entries, Transactions
 
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:
