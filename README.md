@@ -75,7 +75,7 @@ GET /api/v1/users/1/entries
         },
         {
             "user_id": 1,
-            "type": "mixed drinks",
+            "type": "cocktail",
             "amount": 299,
             "created_at": "2019-04-04T18:43:17.277840Z"
         },
@@ -103,7 +103,7 @@ GET /api/v1/entries
     },
     {
         "user_id": 1,
-        "type": "mixed drinks",
+        "type": "cocktail",
         "amount": 299,
         "created_at": "2019-04-04T18:43:17.277840Z"
     },
