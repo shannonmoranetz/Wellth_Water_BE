@@ -3,12 +3,8 @@ from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
 
-from .models import Users
-from .serializers import UsersSerializer
-from .models import Entries
-from .serializers import EntriesSerializer
-from .models import Transactions
-from .serializers import TransactionsSerializer
+from .models import Users, Entries, Transactions
+from .serializers import UsersSerializer, EntriesSerializer, TransactionsSerializer
 
 from IPython import embed
 

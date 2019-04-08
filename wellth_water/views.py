@@ -1,48 +1,39 @@
 from django.shortcuts import render
 
-# Create your views here.
-
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
 
-
-from .models import Users
-from .serializers import UsersSerializer
-from .models import Entries
-from .serializers import EntriesSerializer
-from .models import Transactions
-from .serializers import TransactionsSerializer
+from .models import Users, Entries, Transactions
+from .serializers import UsersSerializer, EntriesSerializer, TransactionsSerializer
 
 
 class ListUsersView(generics.ListAPIView):
     """
-    Provides a get method handler.
+    Provides a get all users method handler.
     """
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
 
 class ListEntriesView(generics.ListAPIView):
     """
-    Provides a get method handler.
+    Provides a get all entries method handler.
     """
     queryset = Entries.objects.all()
     serializer_class = EntriesSerializer
 
 class EntriesView(APIView):
     """
-    Provides a get method handler.
+    Provides a post entries method handler.
     """
     def post(self, request, version, user_id, drinktype, amount, format=None):
-        # user = Users.objects.get(user_id=user_id)
         entry = Entries.objects.create(user_id=user_id, drinktype=drinktype, amount=amount)
         entries_serializer = EntriesSerializer(entry)
         return Response(entries_serializer.data)
 
 class ListUserEntriesView(APIView):
     """
-    Provides a get method handler.
+    Provides a get all entries for specifc user method handler.
     """
     def get(self, request, version, user_id, format=None):
         user = Users.objects.get(id=user_id)
@@ -55,7 +46,7 @@ class ListUserEntriesView(APIView):
 
 class ListTransactionsView(generics.ListAPIView):
     """
-    Provides a get method handler.
+    Provides a get all Transactions method handler.
     """
     queryset = Transactions.objects.all()
     serializer_class = TransactionsSerializer
