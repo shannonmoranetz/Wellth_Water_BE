@@ -1,5 +1,7 @@
 # Wellth Water
 
+![Image description](https://imgur.com/BgpcFP4.jpg)
+
 
 Wellth Water is an app for logging and tracking drink amounts & types that you choose to give up over a months time in order to instead donate the money you would have spent to fund a clean water well for people around the world who do not access to clean water.  Wellth Water then uses the Stripe API in order to process a payment for your total amount you saved over the month.
 
@@ -11,7 +13,7 @@ Wellth Water is a Mod4 cross-pollination project at [Turing School of Software &
 
 #### Wellth Water App Production Link:
 
-http://
+https://wellthwater.herokuapp.com/
 
 #### Wellth Water Backend API Production Link:
 
@@ -40,9 +42,9 @@ GET /api/v1/users
 
 [
     {
-        "id": 17,
-        "name": "Justin",
-        "email": "Justin@gmail.com"
+        "id": 19,
+        "name": "Shannon",
+        "email": "Shannon@gmail.com"
     },
     {
         "id": 18,
@@ -50,11 +52,68 @@ GET /api/v1/users
         "email": "Ben@gmail.com"
     },
     {
-        "id": 19,
-        "name": "Shannon",
-        "email": "Shannon@gmail.com"
+        "id": 17,
+        "name": "Justin",
+        "email": "Justin@gmail.com"
     }
 ]
+```
+
+
+##### Get All Entries:
+```
+GET /api/v1/entries
+
+[
+    {
+        "user_id": 1,
+        "type": "wine",
+        "amount": 299,
+        "created_at": "2019-04-09T18:43:17.276189Z"
+    },
+    {
+        "user_id": 1,
+        "type": "cocktail",
+        "amount": 299,
+        "created_at": "2019-04-08T18:43:17.277840Z"
+    },
+    {
+        "user_id": 1,
+        "type": "tea",
+        "amount": 550,
+        "created_at": "2019-04-07T18:43:17.279036Z"
+    },
+    {
+        "user_id": 1,
+        "type": "coffee",
+        "amount": 350,
+        "created_at": "2019-04-06T18:43:17.281216Z"
+    },
+    {
+        "user_id": 1,
+        "type": "beer",
+        "amount": 350,
+        "created_at": "2019-04-05T18:43:17.291405Z"
+    },
+    {
+        "user_id": 1,
+        "type": "soda",
+        "amount": 350,
+        "created_at": "2019-04-04T18:43:17.297320Z"
+    }    
+]
+```
+
+##### Create an Entry:
+```
+POST /api/v1/entries/4/tea/240/
+
+{
+    "user_id": 4,
+    "drinktype": "tea",
+    "amount": 240,
+    "created_at": "2019-04-06T22:43:03.396548Z"
+}
 ```
 
 ##### Get A Specific User & Their Entries:
@@ -71,125 +130,33 @@ GET /api/v1/users/1/entries
             "user_id": 1,
             "type": "tea",
             "amount": 550,
-            "created_at": "2019-04-04T18:43:17.279036Z"
+            "created_at": "2019-04-09T18:43:17.279036Z"
         },
         {
             "user_id": 1,
             "type": "mixed drinks",
             "amount": 299,
-            "created_at": "2019-04-04T18:43:17.277840Z"
+            "created_at": "2019-04-08T18:43:17.277840Z"
         },
         {
             "user_id": 1,
             "type": "wine",
             "amount": 299,
-            "created_at": "2019-04-04T18:43:17.276189Z"
+            "created_at": "2019-04-07T18:43:17.276189Z"
         }
     ]
 }
 ```
 
-
-##### Get All Entries:
-```
-GET /api/v1/entries
-
-[
-    {
-        "user_id": 1,
-        "type": "wine",
-        "amount": 299,
-        "created_at": "2019-04-04T18:43:17.276189Z"
-    },
-    {
-        "user_id": 1,
-        "type": "mixed drinks",
-        "amount": 299,
-        "created_at": "2019-04-04T18:43:17.277840Z"
-    },
-    {
-        "user_id": 1,
-        "type": "tea",
-        "amount": 550,
-        "created_at": "2019-04-04T18:43:17.279036Z"
-    },
-    {
-        "user_id": 1,
-        "type": "coffee",
-        "amount": 350,
-        "created_at": "2019-04-04T18:43:17.281216Z"
-    },
-    {
-        "user_id": 1,
-        "type": "beer",
-        "amount": 350,
-        "created_at": "2019-04-04T18:43:17.291405Z"
-    },
-    {
-        "user_id": 1,
-        "type": "soda",
-        "amount": 350,
-        "created_at": "2019-04-04T18:43:17.297320Z"
-    }    
-]
-```
-
-##### Get One User And Their Entries:
-
-```
-/api/v1/users/4/entries/
-
-{
-    "id": 4,
-    "name": "Sal",
-    "email": "Sal@gmail.com",
-    "entries": [
-        {
-            "user_id": 4,
-            "type": "beer",
-            "amount": 550,
-            "created_at": "2019-04-05T21:43:59.063906Z"
-        },
-        {
-            "user_id": 4,
-            "type": "beer",
-            "amount": 550,
-            "created_at": "2019-04-05T21:43:59.068701Z"
-        },
-        {
-            "user_id": 4,
-            "type": "coffee",
-            "amount": 250,
-            "created_at": "2019-04-05T21:43:59.073146Z"
-        }
-    ]
-}
-```
 
 ##### Get All Transactions:
+(This endpoint is created, but there is not a way to create a transaction yet, so the endpoint is there to hit, but needs a POST transactions endpoint before it is usable.)
 ```
 GET /api/v1/transactions
 
 []
 ```
 
-
-##### Create an Entry:
-```
-POST /api/v1/entries/4/tea/240/
-
-{
-    "user_id": 4,
-    "drinktype": "tea",
-    "amount": 240,
-    "created_at": "2019-04-06T22:43:03.396548Z"
-}
-```
-
-##### Create a Transaction:
-```
-POST /api/v1/transactions/1/10000
-```
 
 ## Getting Started
 
@@ -266,15 +233,16 @@ To deploy this app through Heroku as we have, you can follow these [instructions
 ## Built With
 
 * [Python - Version 3.7.3](https://docs.python.org/3/) - Base code language for backend
-* [Typescript - Version 3.2.2](https://www.typescriptlang.org/docs/home.html) - Base code language for backend
+* [Typescript - Version 3.2.2](https://www.typescriptlang.org/docs/home.html) - Base code language for frontend
 * [Django - Version 2.0.3](https://docs.djangoproject.com/en/2.2/) - Backend Web framework used
-* [AngularJS - Version 7.2.0](https://angularjs.org/) - Frontend Web framework used
+* [Angular - Version 7.2.12](https://angular.io/docs/) - Frontend Web framework used
 * [Django REST API framework](https://www.django-rest-framework.org/) - API framework used
 * [PostgreSQL](https://www.postgresql.org/docs/) - Database used
 * [Psycopg2](https://pypi.org/project/psycopg2/) - Database adapter for the Python
-* [Stripe API](https://stripe.com/docs/api) - Used to process payments
-* [TravisCI](https://travis-ci.org/) - Used for continuous integration
-* [Heroku](https://www.heroku.com/) - Used to deploy to production
+* [Jasmine](https://jasmine.github.io/) - Used to test the frontend
+* [Karma](https://karma-runner.github.io/1.0/index.html) - Used to test the frontend
+* [TravisCI](https://travis-ci.org/) - Used for continuous integration on frontend & backend
+* [Heroku](https://www.heroku.com/) - Used to deploy to production for frontend & backend
 
 
 ## Contributing
@@ -295,6 +263,6 @@ We will review the request and merge it into master if it looks good.
 
 ## Acknowledgments
 
-* Thanks to our Mod4 instructors [Corey Westerfield](https://github.com/corywest) & [Dione Wilson](https://github.com/dionew1) for all their help and insight on this project.
+* Thanks to our Mod4 instructors [Corey Westerfield](https://github.com/corywest) & [Dione Wilson](https://github.com/dionew1) (Backend) and [Leta Keane](https://github.com/letakeane) & [Will Mitchell](https://github.com/wvmitchell) (Frontend) for all their help and insight on this project.
 
 * Thanks to all our other fellow [Turing School of Software & Design](https://turing.io/) - Mod4 classmates that helped think through design decisions on this project as well.

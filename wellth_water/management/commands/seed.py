@@ -19,13 +19,11 @@ class Command(BaseCommand):
         run_seed(self, options['mode'])
         self.stdout.write('done.')
 
-
 def clear_data():
     """Deletes all the table data"""
     logger.info("Delete User instances")
     Entries.objects.all().delete()
     Users.objects.all().delete()
-
 
 def create_user(name):
     """Creates a user object combining different elements from the list"""
@@ -41,12 +39,11 @@ def create_user(name):
     logger.info("{} user created.".format(user))
     return user
 
-
 def create_entry(user):
     """Creates a entry object combining different elements from the list"""
     logger.info("Creating entrys")
 
-    types = [ "coffee", "beer", "soda", "wine","mixed drinks", "tea" ]
+    types = [ "coffee", "beer", "soda", "wine","cocktail", "tea" ]
     amounts = [ 250, 299, 350, 550, 650 ]
 
     entry = Entries(
