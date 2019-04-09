@@ -8,6 +8,7 @@ class TimeStampedModel(models.Model):
 
      class Meta:
          abstract = True
+         ordering = ( "-created_at", )
 
 class Users(TimeStampedModel):
     name = models.CharField(max_length=255, null=False)
