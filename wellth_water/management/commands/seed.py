@@ -46,7 +46,7 @@ def create_entry(user):
     """Creates a entry object combining different elements from the list"""
     logger.info("Creating entrys")
 
-    types = [ "coffee", "beer", "soda", "wine","mixed drinks", "tea" ]
+    types = [ "coffee", "beer", "soda", "wine","cocktail", "tea" ]
     amounts = [ 250, 299, 350, 550, 650 ]
 
     entry = Entries(
