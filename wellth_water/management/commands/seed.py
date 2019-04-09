@@ -19,13 +19,11 @@ class Command(BaseCommand):
         run_seed(self, options['mode'])
         self.stdout.write('done.')
 
-
 def clear_data():
     """Deletes all the table data"""
     logger.info("Delete User instances")
     Entries.objects.all().delete()
     Users.objects.all().delete()
-
 
 def create_user(name):
     """Creates a user object combining different elements from the list"""
@@ -40,7 +38,6 @@ def create_user(name):
         create_entry(user)
     logger.info("{} user created.".format(user))
     return user
-
 
 def create_entry(user):
     """Creates a entry object combining different elements from the list"""
