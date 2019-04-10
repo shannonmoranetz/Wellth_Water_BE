@@ -1,6 +1,6 @@
 # Wellth Water
 
-![Image description](https://imgur.com/BgpcFP4.jpg)
+![Image description](https://imgur.com/4vmhWys.jpg)
 
 
 Wellth Water is an app for logging and tracking drink amounts & types that you choose to give up over a months time in order to instead donate the money you would have spent to fund a clean water well for people around the world who do not access to clean water.
@@ -8,6 +8,8 @@ Wellth Water is an app for logging and tracking drink amounts & types that you c
 **"We as Wellth Water believe in the power of giving up a small amount of your own personal wealth, in order to build a well to give people access to clean water."**
 
 Wellth Water is a Mod4 cross-pollination project at [Turing School of Software & Design](https://turing.io/) where three students *(2 students from the backend program, and 1 student from the frontend program)* with 6 months experience in software development create an Angular/Typescript framework on the frontend. Future iterations will include using the Stripe API in order to process payments.
+
+![Current Version](https://imgur.com/vIrHp7c.jpg)
 
 
 
