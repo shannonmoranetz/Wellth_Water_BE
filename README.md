@@ -11,19 +11,16 @@ Wellth Water is a Mod4 cross-pollination project at [Turing School of Software &
 
 
 
-#### Wellth Water App Production Link:
+#### Wellth Water Production Links:
+Live App: https://wellthwater.herokuapp.com/
 
-https://wellthwater.herokuapp.com/
+Backend API: http://wellth-water.herokuapp.com/
 
-#### Wellth Water Backend API Production Link:
 
-http://wellth-water.herokuapp.com/
+#### Wellth Water Github Repositories:
+Frontend: https://github.com/shannonmoranetz/Wellth_Water_FE
 
-#### Wellth Water Frontend App - Github Repository:
-https://github.com/shannonmoranetz/Wellth_Water_FE
-
-#### Wellth Water Backend API - Github Repository:
-https://github.com/justinmauldin7/Wellth_Water_BE
+Backend: https://github.com/justinmauldin7/Wellth_Water_BE
 
 #### Wellth Water Project Board Link:
 https://github.com/justinmauldin7/Wellth_Water_BE/projects/1
