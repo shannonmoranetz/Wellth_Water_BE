@@ -1,4 +1,5 @@
-# Wellth Water
+# Wellth Water Backend API
+[![Build Status](https://travis-ci.com/justinmauldin7/Wellth_Water_BE.svg?branch=master)](https://travis-ci.com/justinmauldin7/Wellth_Water_BE)
 
 ![Image description](https://imgur.com/4vmhWys.jpg)
 
