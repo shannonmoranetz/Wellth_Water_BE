@@ -30,6 +30,9 @@ https://github.com/justinmauldin7/Wellth_Water_BE/projects/1
 
 
 
+## Database Schema:
+
+![Image description](https://imgur.com/oWTyRPh.jpg)
 
 
 
