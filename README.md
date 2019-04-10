@@ -1,6 +1,6 @@
 # Wellth Water
 
-![Image description](https://imgur.com/BgpcFP4.jpg)
+![Image description](https://i.imgur.com/BEIN0G7.png)
 
 
 Wellth Water is an app for logging and tracking drink amounts & types that you choose to give up over a months time in order to instead donate the money you would have spent to fund a clean water well for people around the world who do not access to clean water.
