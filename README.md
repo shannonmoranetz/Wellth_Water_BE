@@ -266,6 +266,6 @@ We will review the request and merge it into master if it is approved.
 
 ## Acknowledgments
 
-* Thanks to our Mod4 instructors [Corey Westerfield](https://github.com/corywest) & [Dione Wilson](https://github.com/dionew1) (Backend) & [Leta Keane](https://github.com/letakeane) & [Will Mitchell](https://github.com/wvmitchell) (Frontend) for all their help and insight on this project.
+* Thanks to our Mod4 instructors [Cory Westerfield](https://github.com/corywest) & [Dione Wilson](https://github.com/dionew1) (Backend) & [Leta Keane](https://github.com/letakeane) & [Will Mitchell](https://github.com/wvmitchell) (Frontend) for all their help and insight on this project.
 
 * Thanks to all our other fellow [Turing School of Software & Design](https://turing.io/) - Mod4 classmates that helped think through design decisions on this project as well.
